@@ -54,7 +54,7 @@ export default {
     ],
     resumeInfo: {
       fullName: 'John Roe',
-      position: 'Business Development Manager',
+      position: 'Business  Manager',
       description:
         `Lorem ipsum dolor sit amet consectetur adipisicing elit. 
         Enim necessitatibus veritatis excepturi quisquam veniam? 
@@ -127,7 +127,7 @@ export default {
   },
   mutations: {
     changeStateValue (state, payload) {
-      console.log(state, payload)
+      console.log(state.resumeInfo[payload.camelizedKeyName])
       state.resumeInfo[payload.camelizedKeyName] = payload.value
       console.log(state.resumeInfo[payload.camelizedKeyName])
     }

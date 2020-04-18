@@ -1,19 +1,9 @@
 <template>
-  <v-card >
-    <v-card-title>
-      <v-spacer></v-spacer>
-      <h2>Personal Info</h2>
-      <v-spacer></v-spacer>
-    </v-card-title>
-    <v-divider></v-divider>
-    <v-card-actions>
-      <InputForm :fields="openerFields" next="Contact Info" @blur-event="blur"/>
-    </v-card-actions>
-  </v-card>
+  <BuilderCard title ="Personal Informatio" :fields="openerFields" next="Contact Info" @blur-event="blur" />
 </template>
 
 <script>
-import InputForm from './InputForm'
+import BuilderCard from '../generic/BuilderCard'
 import { mapState, mapActions } from 'vuex'
 export default {
   name: 'PersonalInfo',
@@ -21,7 +11,7 @@ export default {
     resumeChoice: String
   },
   components: {
-    InputForm
+    BuilderCard
   },
   computed: {
     ...mapState('simple', ['openerFields'])
@@ -35,5 +25,4 @@ export default {
 </script>
 
 <style>
-
 </style>

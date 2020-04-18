@@ -16,7 +16,7 @@
 </template>
 
 <script>
-import BuilderNav from '../components/BuilderNav'
+import BuilderNav from '../components/builderComps/generic/BuilderNav'
 import SimpleResume from '../components/SimpleResume'
 import { mapState } from 'vuex'
 export default {

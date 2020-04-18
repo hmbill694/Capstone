@@ -39,7 +39,7 @@ const routes = [
         path: '/resume-builder/personal',
         name: 'ResumeBuilderPersonal',
         props: true,
-        component: () => import('../components/PersonalInfo.vue')
+        component: () => import('../components/builderComps/builderSubViews/PersonalInfo.vue')
       }
     ]
   }
