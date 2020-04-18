@@ -3,7 +3,7 @@
     <div id="page-container">
       <div id="header-wrapper" class="resume-section">
         <h1 class="header-font">{{ resumeInfo.fullName }}</h1>
-        <h4 class="subheader-font">{{ resumeInfo.lastPostition }}</h4>
+        <h4 class="subheader-font">{{ resumeInfo.position }}</h4>
         <p class="body-font">
           {{ resumeInfo.description }}
         </p>

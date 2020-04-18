@@ -54,7 +54,7 @@ export default {
     ],
     resumeInfo: {
       fullName: 'John Roe',
-      postition: 'Business Development Manager',
+      position: 'Business Development Manager',
       description:
         `Lorem ipsum dolor sit amet consectetur adipisicing elit. 
         Enim necessitatibus veritatis excepturi quisquam veniam? 
@@ -128,12 +128,13 @@ export default {
   mutations: {
     changeStateValue (state, payload) {
       console.log(state, payload)
+      state.resumeInfo[payload.camelizedKeyName] = payload.value
+      console.log(state.resumeInfo[payload.camelizedKeyName])
     }
   },
   actions: {
     alterResumeState ({ commit }, payload) {
-      const camelPayload = payload.split()
-      commit('changeStateValue', camelPayload)
+      commit('changeStateValue', payload)
     }
   }
 }

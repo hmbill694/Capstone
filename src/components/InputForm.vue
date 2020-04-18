@@ -6,7 +6,7 @@
           <v-text-field
             v-if="item.fieldType === 'v-text-field'"
             :label="item.fieldName"
-            @blur="emitOnBlur(value)"
+            @blur="emitOnBlur($event.target.value, item.fieldName)"
             required
             clearable
           ></v-text-field>
@@ -15,6 +15,7 @@
             auto-grow
             clearable
             :placeholder="item.fieldName"
+            @blur="emitOnBlur($event.target.value, item.fieldName)"
           ></v-textarea>
         </v-col>
       </v-row>
@@ -39,8 +40,18 @@ export default {
     blurFuntion: Function
   },
   methods: {
-    emitOnBlur (payload) {
-      this.$emit('blur-event', payload)
+    emitOnBlur (value, itemKeyName) {
+      const camelizedKeyName = itemKeyName
+        .split(' ') // seperate string to array by spliting at spaces
+        .map((element, index) => { // put first word to all lower case and capitalize all subsequent words
+          if (index !== 0) {
+            return element.charAt(0).toUpperCase() + element.slice(1)
+          }
+          return element.charAt(0).toLowerCase() + element.slice(1)
+        })
+        .join('')
+
+      this.$emit('blur-event', { value, camelizedKeyName })
     }
   }
 }
