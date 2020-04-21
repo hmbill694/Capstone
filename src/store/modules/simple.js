@@ -44,7 +44,7 @@ export default {
         fieldType: 'v-text-field'
       },
       {
-        fieldName: 'Postion',
+        fieldName: 'Position',
         fieldType: 'v-text-field'
       },
       {
@@ -52,17 +52,62 @@ export default {
         fieldType: 'v-textarea'
       }
     ],
+    contactFields: [
+      {
+        fieldName: 'Email',
+        fieldType: 'v-text-field'
+      },
+      {
+        fieldName: 'Phone Number',
+        fieldType: 'v-text-field'
+      },
+      {
+        fieldName: 'Address',
+        fieldType: 'v-text-field'
+      }
+    ],
+    skillsFields: [
+      {
+        fieldName: '',
+        fieldType: 'v-radio-group',
+        radioBtns: [
+          {
+            label: '1',
+            value: 1
+          },
+          {
+            label: '2',
+            value: 2
+          },
+          {
+            label: '3',
+            value: 3
+          },
+          {
+            label: '4',
+            value: 4
+          }
+        ]
+      },
+
+      {
+        fieldName: 'Skills',
+        fieldType: 'v-textarea'
+      }
+    ],
     resumeInfo: {
-      fullName: 'John Roe',
-      position: 'Business  Manager',
-      description:
+      personalInformation: {
+        fullName: 'John Roe',
+        position: 'Business  Manager',
+        description:
         `Lorem ipsum dolor sit amet consectetur adipisicing elit. 
         Enim necessitatibus veritatis excepturi quisquam veniam? 
-        Odit illum quia vitae consequatur fugit`,
-      dividerBar: {
+        Odit illum quia vitae consequatur fugit`
+      },
+      contactInformation: {
         email: 'JaneRoe@gmail.com',
-        phone: '555-555-5555',
-        Address: '1234 Main St., Phoenix, AZ'
+        phoneNumber: '555-555-5555',
+        address: '1234 Main St., Phoenix, AZ'
       },
       skills: [
         ['SEO', 'Email Marketing', 'Descison Making'],
@@ -127,9 +172,9 @@ export default {
   },
   mutations: {
     changeStateValue (state, payload) {
-      console.log(state.resumeInfo[payload.camelizedKeyName])
-      state.resumeInfo[payload.camelizedKeyName] = payload.value
-      console.log(state.resumeInfo[payload.camelizedKeyName])
+      if (payload.camelizedNameKey !== '') {
+        state.resumeInfo[payload.section][payload.camelizedKeyName] = payload.value
+      }
     }
   },
   actions: {

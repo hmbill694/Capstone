@@ -40,6 +40,18 @@ const routes = [
         name: 'ResumeBuilderPersonal',
         props: true,
         component: () => import('../components/builderComps/builderSubViews/PersonalInfo.vue')
+      },
+      {
+        path: '/resume-builder/contact',
+        name: 'ResumeBuilderContact',
+        props: true,
+        component: () => import('../components/builderComps/builderSubViews/ContanctInfo.vue')
+      },
+      {
+        path: '/resume-builder/skills',
+        name: 'ResumeBuilderSkills',
+        props: true,
+        component: () => import('../components/builderComps/builderSubViews/SkillsInfo.vue')
       }
     ]
   }

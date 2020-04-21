@@ -1,5 +1,4 @@
 <template>
-  <v-container>
     <v-container>
       <v-row v-for="item in fields" :key="item.fieldName">
         <v-col :cols="12">
@@ -17,6 +16,15 @@
             :placeholder="item.fieldName"
             @blur="emitOnBlur($event.target.value, item.fieldName)"
           ></v-textarea>
+          <v-radio-group v-model="radioValue" v-if="item.fieldType === 'v-radio-group'" row>
+            <v-radio
+              v-for="radio in item.radioBtns"
+              :key="radio.label"
+              :label="radio.label"
+              :value="radio.value"
+              @click="emitOnRadioClick(radio.value)"
+            ></v-radio>
+          </v-radio-group>
         </v-col>
       </v-row>
       <v-row>
@@ -24,34 +32,32 @@
           <v-btn block depressed color="blue">Save information</v-btn>
         </v-col>
         <v-col>
-          <v-btn block depressed color="green">Proceed to {{ next }}</v-btn>
+          <v-btn block depressed color="green" :to="route">Proceed to {{ next }}</v-btn>
         </v-col>
       </v-row>
     </v-container>
-  </v-container>
 </template>
 
 <script>
+import { camelize } from '../mixins/utils'
 export default {
   name: 'InputForm',
   props: {
     fields: Array,
     next: String,
-    blurFuntion: Function
+    route: String
   },
+  data: () => ({
+    radioValue: null
+  }),
   methods: {
     emitOnBlur (value, itemKeyName) {
-      const camelizedKeyName = itemKeyName
-        .split(' ') // seperate string to array by spliting at spaces
-        .map((element, index) => { // put first word to all lower case and capitalize all subsequent words
-          if (index !== 0) {
-            return element.charAt(0).toUpperCase() + element.slice(1)
-          }
-          return element.charAt(0).toLowerCase() + element.slice(1)
-        })
-        .join('')
-
+      const camelizedKeyName = camelize(itemKeyName)
       this.$emit('blur-event', { value, camelizedKeyName })
+    },
+    emitOnRadioClick (value) {
+      this.radioValue = value
+      this.$emit('radio-click-event', { value: this.radioValue })
     }
   }
 }

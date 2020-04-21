@@ -2,16 +2,16 @@
   <v-container class="white">
     <div id="page-container">
       <div id="header-wrapper" class="resume-section">
-        <h1 class="header-font">{{ resumeInfo.fullName }}</h1>
-        <h4 class="subheader-font">{{ resumeInfo.position }}</h4>
+        <h1 class="header-font">{{ resumeInfo.personalInformation.fullName }}</h1>
+        <h4 class="subheader-font">{{ resumeInfo.personalInformation.position }}</h4>
         <p class="body-font">
-          {{ resumeInfo.description }}
+          {{ resumeInfo.personalInformation.description }}
         </p>
       </div>
       <!--End of header-wrapper-->
       <div id="divider-bar">
         <ul id="divider-list" class="horizontal-list">
-          <li v-for="value in resumeInfo.dividerBar" :key="value" class="list-item">
+          <li v-for="value in resumeInfo.contactInformation" :key="value" class="list-item">
             <i class="fas fa-address-card"></i>
             &nbsp;
             <a class="list-item-tag">{{ value }}</a>

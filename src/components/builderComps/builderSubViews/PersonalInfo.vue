@@ -1,10 +1,18 @@
 <template>
-  <BuilderCard title ="Personal Informatio" :fields="openerFields" next="Contact Info" @blur-event="blur" />
+  <BuilderCard
+    title="Personal Information"
+    :fields="openerFields"
+    next="Contact Info"
+    route="/resume-builder/contact"
+    @blur-event="updateResume"
+  />
 </template>
 
 <script>
 import BuilderCard from '../generic/BuilderCard'
 import { mapState, mapActions } from 'vuex'
+import { makePayload } from '../../../mixins/factories'
+import { camelize } from '../../../mixins/utils'
 export default {
   name: 'PersonalInfo',
   props: {
@@ -18,8 +26,16 @@ export default {
   },
   methods: {
     ...mapActions('simple', {
-      blur: 'alterResumeState'
-    })
+      action: 'alterResumeState'
+    }),
+    updateResume (payload) {
+      const x = makePayload({
+        section: camelize(payload.title),
+        camelizedKeyName: payload.camelizedKeyName,
+        value: payload.value
+      })
+      this.action(x)
+    }
   }
 }
 </script>
