@@ -1,9 +1,9 @@
 <template>
   <BuilderCard
-    title="Contact Information"
+    :title="title"
     :fields="contactFields"
-    next="Skills"
-    route="/resume-builder/skills"
+    :next="next"
+    :route="route"
     @blur-event="updateResume"
   />
 </template>
@@ -21,6 +21,11 @@ export default {
   components: {
     BuilderCard
   },
+  data: () => ({
+    title: 'Contact Information',
+    next: 'Skills',
+    route: '/resume-builder/skills'
+  }),
   computed: {
     ...mapState('simple', ['contactFields'])
   },
@@ -30,12 +35,12 @@ export default {
     }),
 
     updateResume (payload) {
-      const x = makePayload({
-        section: camelize(payload.title),
+      const finalPayload = makePayload({
+        section: camelize(this.title),
         camelizedKeyName: payload.camelizedKeyName,
         value: payload.value
       })
-      this.action(x)
+      this.action(finalPayload)
     }
   }
 }

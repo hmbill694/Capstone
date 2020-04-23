@@ -22,26 +22,10 @@
       <div id="body-wrapper" class="resume-section">
         <h3 class="body-section-title">&nbsp;Skills</h3>
         <div id="skills-section" class="body-group">
-          <ul class="skills-list vertical-list">
-            <li class="list-item">SEO</li>
-            <li class="list-item">Email Marketing</li>
-            <li class="list-item">Decison Making</li>
+          <ul v-for="col in resumeInfo.skills" :key="col.col" class="skills-list vertical-list">
+            <li v-for="entry in col.values" :key="entry" class="list-item"> {{ entry }} </li>
           </ul>
-          <ul class="skills-list vertical-list">
-            <li class="list-item">Public Speaking</li>
-            <li class="list-item">Research & Strategy</li>
-            <li class="list-item">Google Analytics</li>
-          </ul>
-          <ul class="skills-list vertical-list">
-            <li class="list-item">Negotiation</li>
-            <li class="list-item">Emotional Intelligence</li>
-            <li class="list-item">Sales</li>
-          </ul>
-          <ul class="skills-list vertical-list">
-            <li class="list-item">Teamwork</li>
-            <li class="list-item">Outbound Marketing</li>
-            <li class="list-item">Social Media Advertising</li>
-          </ul>
+
         </div>
         <!-- End skills-section -->
         <div class="spaced"></div>

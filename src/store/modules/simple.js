@@ -110,10 +110,22 @@ export default {
         address: '1234 Main St., Phoenix, AZ'
       },
       skills: [
-        ['SEO', 'Email Marketing', 'Descison Making'],
-        ['Public Speaking', 'Research & Strategy', 'Google Analytics'],
-        ['Negotiation', 'Emotional Intelligence', 'Sales'],
-        ['Teamwork', 'Outbound Marketing', 'Social Media Advertising']
+        {
+          col: 1,
+          values: ['SEO', 'Email Marketing', 'Descison Making']
+        },
+        {
+          col: 2,
+          values: ['Public Speaking', 'Research & Strategy', 'Google Analytics']
+        },
+        {
+          col: 3,
+          values: ['Negotiation', 'Emotional Intelligence', 'Sales']
+        },
+        {
+          col: 4,
+          values: ['Teamwork', 'Outbound Marketing', 'Social Media Advertising']
+        }
       ],
       workHistory: [
         {
@@ -172,8 +184,11 @@ export default {
   },
   mutations: {
     changeStateValue (state, payload) {
-      if (payload.camelizedNameKey !== '') {
+      console.log(payload)
+      if (payload.camelizedNameKey) {
         state.resumeInfo[payload.section][payload.camelizedKeyName] = payload.value
+      } else {
+        state.resumeInfo[payload.section] = payload.value
       }
     }
   },

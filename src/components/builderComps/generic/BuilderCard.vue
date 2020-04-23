@@ -30,8 +30,7 @@ export default {
   },
   methods: {
     emitOnBlur (payload) {
-      const updatedPayload = { ...payload, title: this.title }
-      this.$emit('blur-event', updatedPayload)
+      this.$emit('blur-event', payload)
     },
     emitOnRadioClick (payload) {
       this.$emit('radio-click-event', payload)
