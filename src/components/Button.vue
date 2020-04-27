@@ -1,5 +1,5 @@
 <template>
-  <v-btn depressed x-large rounded class="red text-center" :max-width="width" :to="link"> {{ text }} </v-btn>
+  <v-btn depressed x-large rounded :color="color" class="text-center" :max-width="width" :to="link"> {{ text }} </v-btn>
 </template>
 
 <script>
@@ -8,7 +8,8 @@ export default {
   props: {
     text: String,
     width: String,
-    link: String
+    link: String,
+    color: String
   }
 }
 </script>

@@ -9,6 +9,7 @@
         :route="route"
         @blur-event="emitOnBlur"
         @radio-click-event="emitOnRadioClick"
+        @button-click-event="emitOnButtonClick"
       />
     </v-card-actions>
   </v-card>
@@ -34,6 +35,9 @@ export default {
     },
     emitOnRadioClick (payload) {
       this.$emit('radio-click-event', payload)
+    },
+    emitOnButtonClick (payload) {
+      this.$emit('button-click-event', payload)
     }
   }
 }

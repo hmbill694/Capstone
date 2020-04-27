@@ -32,61 +32,18 @@
         <h3 class="body-section-title">&nbsp;Work History</h3>
         <div class="spaced-larger"></div>
         <div id="work-section">
-          <div class="work-group spaced-larger">
-            <h4 class="job-title">&mdash;&nbsp;Frontend-Developer</h4>
-            <h4 class="job-loc spaced">Small Devshop inc.</h4>
+          <div v-for="item in resumeInfo.workHistory" :key="item.datesThere" class="work-group spaced-larger">
+            <h4 class="job-title">&mdash;&nbsp;{{ item.title }}</h4>
+            <h4 class="job-loc spaced">{{ item.companyName }}</h4>
             <div class="date-loc-row">
-              <h6>03/2017 - 08/2018</h6>
-              <h6>New York, New York</h6>
+              <h6>{{ item.datesThere }}</h6>
+              <h6>{{ item.location }}</h6>
             </div>
             <!-- End of date-loc-row -->
             <ul class="work-list">
-              <li>
+              <li v-for="duty in item.duties" :key="duty">
                 <p class="body-font">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde ut ex quam harum porro tempore in
-                  veritatis sunt temporibus maiores.
-                </p>
-              </li>
-              <li>
-                <p class="body-font">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde ut ex quam harum porro tempore in
-                  veritatis sunt temporibus maiores.
-                </p>
-              </li>
-              <li>
-                <p class="body-font">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde ut ex quam harum porro tempore in
-                  veritatis sunt temporibus maiores.
-                </p>
-              </li>
-            </ul>
-          </div>
-          <!-- End of work-group -->
-          <div class="work-group spaced-larger">
-            <h4 class="job-title">&mdash;&nbsp;Frontend-Developer</h4>
-            <h4 class="job-loc spaced">Small Devshop inc.</h4>
-            <div class="date-loc-row">
-              <h6>03/2017 - 08/2018</h6>
-              <h6>New York, New York</h6>
-            </div>
-            <!-- End of date-loc-row -->
-            <ul class="work-list">
-              <li >
-                <p class="body-font">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde ut ex quam harum porro tempore in
-                  veritatis sunt temporibus maiores.
-                </p>
-              </li>
-              <li >
-                <p class="body-font">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde ut ex quam harum porro tempore in
-                  veritatis sunt temporibus maiores.
-                </p>
-              </li>
-              <li >
-                <p class="body-font">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde ut ex quam harum porro tempore in
-                  veritatis sunt temporibus maiores.
+                  {{ duty }}
                 </p>
               </li>
             </ul>

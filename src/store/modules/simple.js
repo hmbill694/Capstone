@@ -20,7 +20,7 @@ export default {
       {
         text: 'Work History',
         description: 'Present prior work experiance related to the field',
-        route: '/resume-builder/work-history'
+        route: '/resume-builder/work'
       },
       {
         text: 'Education',
@@ -40,34 +40,41 @@ export default {
     ],
     openerFields: [
       {
+        col: 12,
         fieldName: 'Full Name',
         fieldType: 'v-text-field'
       },
       {
+        col: 12,
         fieldName: 'Position',
         fieldType: 'v-text-field'
       },
       {
+        col: 12,
         fieldName: 'Description',
         fieldType: 'v-textarea'
       }
     ],
     contactFields: [
       {
+        col: 12,
         fieldName: 'Email',
         fieldType: 'v-text-field'
       },
       {
+        col: 12,
         fieldName: 'Phone Number',
         fieldType: 'v-text-field'
       },
       {
+        col: 12,
         fieldName: 'Address',
         fieldType: 'v-text-field'
       }
     ],
     skillsFields: [
       {
+        col: 12,
         fieldName: '',
         fieldType: 'v-radio-group',
         radioBtns: [
@@ -89,18 +96,57 @@ export default {
           }
         ]
       },
-
       {
+        col: 12,
         fieldName: 'Skills',
         fieldType: 'v-textarea'
       }
+    ],
+    workFields: [
+      {
+        col: 6,
+        fieldName: 'Title',
+        fieldType: 'v-text-field'
+      },
+      {
+        col: 6,
+        fieldName: 'Company Name',
+        fieldType: 'v-text-field'
+      },
+      {
+        col: 6,
+        fieldName: 'Location',
+        fieldType: 'v-text-field'
+      },
+      {
+        col: 6,
+        fieldName: 'Dates There',
+        fieldType: 'v-text-field'
+      },
+      {
+        col: 12,
+        fieldName: 'Duties',
+        fieldType: 'v-textarea'
+      },
+      {
+        col: 'n',
+        fieldName: 'Remove Last Job',
+        fieldType: 'v-btn',
+        color: 'red'
+      },
+      {
+        col: 'n',
+        fieldName: 'Add Job',
+        fieldType: 'v-btn',
+        color: 'green'
+      }
+
     ],
     resumeInfo: {
       personalInformation: {
         fullName: 'John Roe',
         position: 'Business  Manager',
-        description:
-        `Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+        description: `Lorem ipsum dolor sit amet consectetur adipisicing elit. 
         Enim necessitatibus veritatis excepturi quisquam veniam? 
         Odit illum quia vitae consequatur fugit`
       },
@@ -130,19 +176,37 @@ export default {
       workHistory: [
         {
           title: 'Frontend Developer',
-          companyInfo: {
-            name: 'Small DevShop Inc.',
-            datesThere: '03/2017 - 08/2018',
-            location: 'New York, New York'
-          }
+          companyName: 'Small DevShop Inc.',
+          datesThere: '03/2017 - 08/2018',
+          location: 'New York, New York',
+          duties: [
+            `Lorem ipsum dolor sit amet gconsectetur adipisicing elit. 
+                    Unde ut ex quam harum porro tempore in
+                    veritatis sunt temporfibus maiores.`,
+            `Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                    Unde ut ex quam harum porro tempore in
+                    veritatis sunt temporibus maiores.`,
+            `Lorem ipsum dolor sit amet consecstetur adipisicing elit. 
+                   Unde ut ex quam harum porro tempore in
+                   veritatis sunt temporibus maiores.`
+          ]
         },
         {
-          title: 'Frontend Developer',
-          companyInfo: {
-            name: 'Small DevShop Inc.',
-            datesThere: '03/2017 - 08/2018',
-            location: 'New York, New York'
-          }
+          title: 'Backend Developer',
+          companyName: 'Small DevShop Inc.',
+          datesThere: '03/2014 - 03/2017',
+          location: 'Atlanta, Georgia',
+          duties: [
+            `Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                    Unde ut ex quam harum porro tempore in
+                    veritatis sunt tempmorlibus maiores.`,
+            `Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                    Unde ut ex quam harum porro tempore in
+                    veritatis sunt temporibus maiores.`,
+            `Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                   Unde ut ex quam harumd porro tempore in
+                   veritatis sunt temporibus maiores.`
+          ]
         }
       ],
       education: [
@@ -154,15 +218,15 @@ export default {
       ],
       organizations: [
         {
-          name: 'Dev\'s united',
+          name: "Dev's united",
           membershipDate: '2015 - Present'
         },
         {
-          name: 'Dev\'s united',
+          name: "Dev's united",
           membershipDate: '2015 - Present'
         },
         {
-          name: 'Dev\'s united',
+          name: "Dev's united",
           membershipDate: '2015 - Present'
         }
       ],
@@ -184,17 +248,35 @@ export default {
   },
   mutations: {
     changeStateValue (state, payload) {
-      console.log(payload)
-      if (payload.camelizedNameKey) {
-        state.resumeInfo[payload.section][payload.camelizedKeyName] = payload.value
+      if (payload.camelizedNameKey.length !== 0) {
+        state.resumeInfo[payload.section][payload.camelizedNameKey] =
+          payload.value
       } else {
         state.resumeInfo[payload.section] = payload.value
       }
+    },
+    appendToState (state, payload) {
+      state.resumeInfo[payload.section].push(payload.value)
+    },
+    clearStateArray (state, payload) {
+      state.resumeInfo[payload.section] = []
+    },
+    removeLastFromState (state, payload) {
+      state.resumeInfo[payload.section].pop()
     }
   },
   actions: {
     alterResumeState ({ commit }, payload) {
       commit('changeStateValue', payload)
+    },
+    addToArrayStated ({ commit }, payload) {
+      commit('appendToState', payload)
+    },
+    clearState ({ commit }, payload) {
+      commit('clearStateArray', payload)
+    },
+    removeFromStateArray ({ commit }, payload) {
+      commit('removeLastFromState', payload)
     }
   }
 }

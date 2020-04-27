@@ -36,7 +36,7 @@ export default {
     updateResume (payload) {
       const finalPayload = makePayload({
         section: camelize(this.title),
-        camelizedKeyName: payload.camelizedKeyName,
+        camelizedNameKey: payload.camelizedNameKey,
         value: payload.value
       })
       this.action(finalPayload)

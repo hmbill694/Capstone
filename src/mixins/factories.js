@@ -1,11 +1,17 @@
 const makePayload = ({
   section = '',
-  camelizedKeyName = '',
+  camelizedNameKey = '',
   value = ''
 } = {}) => ({
   section,
-  camelizedKeyName,
+  camelizedNameKey,
   value
 })
 
-export { makePayload }
+const makeStateObject = (payload, objectToBuild, conditionalFunc = (x) => x) => {
+  const nameKey = payload.camelizedNameKey
+  const value = conditionalFunc(payload)
+
+  objectToBuild[nameKey] = value
+}
+export { makePayload, makeStateObject }

@@ -7,7 +7,7 @@
             Build a
             <span class="red--text">free</span> professional resume in minutes
           </h1>
-          <Button text="Get Started" width="400" link="resume-select"/>
+          <Button text="Get Started" width="400" link="resume-select" color="red"/>
           <h3 class="ma-3 pa-2 font-weight-bold">A resume builder vetted by HR Experts</h3>
         </div>
       </v-col>

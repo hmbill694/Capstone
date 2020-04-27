@@ -25,7 +25,7 @@ export default {
   data: () => ({
     title: 'Skills',
     next: 'Work History',
-    route: '/resume-builder/work-history',
+    route: '/resume-builder/work',
     description: `Please select how many colomns you would skills you would like 
                   to have in each column`,
     skillPerColmn: null
