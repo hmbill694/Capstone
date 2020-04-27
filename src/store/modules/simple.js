@@ -142,6 +142,36 @@ export default {
       }
 
     ],
+    educationFields: [
+      {
+        col: 12,
+        fieldName: 'Degree Name',
+        fieldType: 'v-text-field'
+      },
+      {
+        col: 12,
+        fieldName: 'Institution Name',
+        fieldType: 'v-text-field'
+      },
+      {
+        col: 12,
+        fieldName: 'Dates Attended',
+        fieldType: 'v-text-field'
+      },
+      {
+        col: 'n',
+        fieldName: 'Remove Last Entry',
+        fieldType: 'v-btn',
+        color: 'red'
+      },
+      {
+        col: 'n',
+        fieldName: 'Add',
+        fieldType: 'v-btn',
+        color: 'green'
+      }
+
+    ],
     resumeInfo: {
       personalInformation: {
         fullName: 'John Roe',
@@ -211,9 +241,9 @@ export default {
       ],
       education: [
         {
-          degree: 'BS. Computer Science',
-          schoolName: 'Arizona State Universtiy',
-          datesThere: '03/2017 - 08/2018'
+          degreeName: 'BS. Computer Science',
+          institutionName: 'Arizona State Universtiy',
+          datesAttended: '03/2017 - 08/2018'
         }
       ],
       organizations: [

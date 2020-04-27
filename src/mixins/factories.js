@@ -8,7 +8,7 @@ const makePayload = ({
   value
 })
 
-const makeStateObject = (payload, objectToBuild, conditionalFunc = (x) => x) => {
+const makeStateObject = (payload, objectToBuild, conditionalFunc = (x) => x.value) => {
   const nameKey = payload.camelizedNameKey
   const value = conditionalFunc(payload)
 

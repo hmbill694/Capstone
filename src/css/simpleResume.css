@@ -173,8 +173,15 @@
 /* End Work section */
 /* Begin School section */
 
+#education-section {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+
 .edu-group {
-  margin-left: 0.4rem;
+  margin: 0.4rem 0.5rem;
 }
 
 .degree-title {

@@ -4,9 +4,7 @@
       <div id="header-wrapper" class="resume-section">
         <h1 class="header-font">{{ resumeInfo.personalInformation.fullName }}</h1>
         <h4 class="subheader-font">{{ resumeInfo.personalInformation.position }}</h4>
-        <p class="body-font">
-          {{ resumeInfo.personalInformation.description }}
-        </p>
+        <p class="body-font">{{ resumeInfo.personalInformation.description }}</p>
       </div>
       <!--End of header-wrapper-->
       <div id="divider-bar">
@@ -23,16 +21,19 @@
         <h3 class="body-section-title">&nbsp;Skills</h3>
         <div id="skills-section" class="body-group">
           <ul v-for="col in resumeInfo.skills" :key="col.col" class="skills-list vertical-list">
-            <li v-for="entry in col.values" :key="entry" class="list-item"> {{ entry }} </li>
+            <li v-for="entry in col.values" :key="entry" class="list-item">{{ entry }}</li>
           </ul>
-
         </div>
         <!-- End skills-section -->
         <div class="spaced"></div>
         <h3 class="body-section-title">&nbsp;Work History</h3>
         <div class="spaced-larger"></div>
         <div id="work-section">
-          <div v-for="item in resumeInfo.workHistory" :key="item.datesThere" class="work-group spaced-larger">
+          <div
+            v-for="item in resumeInfo.workHistory"
+            :key="item.datesThere"
+            class="work-group spaced-larger"
+          >
             <h4 class="job-title">&mdash;&nbsp;{{ item.title }}</h4>
             <h4 class="job-loc spaced">{{ item.companyName }}</h4>
             <div class="date-loc-row">
@@ -42,9 +43,7 @@
             <!-- End of date-loc-row -->
             <ul class="work-list">
               <li v-for="duty in item.duties" :key="duty">
-                <p class="body-font">
-                  {{ duty }}
-                </p>
+                <p class="body-font">{{ duty }}</p>
               </li>
             </ul>
           </div>
@@ -53,10 +52,10 @@
         <!-- End of work section -->
         <h3 class="body-section-title">&nbsp;Education</h3>
         <div id="education-section" class="body-group">
-          <div class="edu-group">
-            <h5 class="degree-title">&bull;&nbsp;BS. Computer Science</h5>
-            <h5 class="school-name">&nbsp;&nbsp;Arizona State University</h5>
-            <h5 class="years-attended">&nbsp;&nbsp;5/5/14 - 5/5/18</h5>
+          <div v-for="item in resumeInfo.education" :key="item.datesAttended" class="edu-group">
+            <h5 class="degree-title">{{ item.degreeName }}</h5>
+            <h5 class="school-name">&nbsp;&nbsp;{{ item.institutionName }}</h5>
+            <h5 class="years-attended">&nbsp;&nbsp;{{ item.datesAttended }}</h5>
           </div>
         </div>
         <!-- End of Education Section -->
@@ -64,24 +63,14 @@
         <div id="orgs-section" class="body-group">
           <div class="inset-container">
             <ul id="org-list" class="horizontal-list-grow-right">
-              <li class="org-item no-style-item">
+              <li
+                v-for="item in resumeInfo.organizations"
+                :key="item.name"
+                class="org-item no-style-item"
+              >
                 <div class="org-group">
-                  <h5 class="org-title">Devs United</h5>
-                  <h6 class="membership-dates">(2015 - present)</h6>
-                </div>
-              </li>
-
-              <li class="org-item no-style-item">
-                <div class="org-group">
-                  <h5 class="org-title">Devs United</h5>
-                  <h6 class="membership-dates">(2015 - present)</h6>
-                </div>
-              </li>
-
-              <li class="org-item no-style-item">
-                <div class="org-group">
-                  <h5 class="org-title">Devs United</h5>
-                  <h6 class="membership-dates">(2015 - present)</h6>
+                  <h5 class="org-title">{{item.name}}</h5>
+                  <h6 class="membership-dates">{{item.membershipDate}}</h6>
                 </div>
               </li>
             </ul>
@@ -133,5 +122,5 @@ export default {
 </script>
 
 <style scoped>
-@import '../css/simpleResume.css';
+@import "../css/simpleResume.css";
 </style>
