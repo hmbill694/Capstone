@@ -30,12 +30,12 @@ export default {
       {
         text: 'Organizations',
         description: "It's about who you know, right?",
-        route: '/resume-builder/orgs'
+        route: '/resume-builder/organization'
       },
       {
         text: 'Langauges',
         description: 'Knowing another language is always good',
-        route: '/resume-builder/lang'
+        route: '/resume-builder/languages'
       }
     ],
     openerFields: [
@@ -172,6 +172,56 @@ export default {
       }
 
     ],
+    organizationFields: [
+      {
+        col: 12,
+        fieldName: 'Org Name',
+        fieldType: 'v-text-field'
+      },
+      {
+        col: 12,
+        fieldName: 'Membership Dates',
+        fieldType: 'v-text-field'
+      },
+      {
+        col: 'n',
+        fieldName: 'Remove Last Entry',
+        fieldType: 'v-btn',
+        color: 'red'
+      },
+      {
+        col: 'n',
+        fieldName: 'Add',
+        fieldType: 'v-btn',
+        color: 'green'
+      }
+
+    ],
+    languageFields: [
+      {
+        col: 12,
+        fieldName: 'Language',
+        fieldType: 'v-text-field'
+      },
+      {
+        col: 12,
+        fieldName: 'Skill Level',
+        fieldType: 'v-text-field'
+      },
+      {
+        col: 'n',
+        fieldName: 'Remove Last Entry',
+        fieldType: 'v-btn',
+        color: 'red'
+      },
+      {
+        col: 'n',
+        fieldName: 'Add',
+        fieldType: 'v-btn',
+        color: 'green'
+      }
+
+    ],
     resumeInfo: {
       personalInformation: {
         fullName: 'John Roe',
@@ -248,30 +298,30 @@ export default {
       ],
       organizations: [
         {
-          name: "Dev's united",
-          membershipDate: '2015 - Present'
+          orgName: "Dev's united",
+          membershipDates: '2015 - Present'
         },
         {
-          name: "Dev's united",
-          membershipDate: '2015 - Present'
+          orgName: "Dev's united",
+          membershipDates: '2015 - Present'
         },
         {
-          name: "Dev's united",
-          membershipDate: '2015 - Present'
+          orgName: "Dev's united",
+          membershipDates: '2015 - Present'
         }
       ],
-      langauges: [
+      languages: [
         {
-          name: 'Spanish',
-          fluencyRating: 'Good'
+          language: 'Spanish',
+          skillLevel: 'Good'
         },
         {
-          name: 'Spanish',
-          fluencyRating: 'Good'
+          language: 'finish',
+          skillLevel: 'Good'
         },
         {
-          name: 'Spanish',
-          fluencyRating: 'Good'
+          language: 'russian',
+          skillLevel: 'Good'
         }
       ]
     }

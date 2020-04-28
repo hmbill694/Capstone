@@ -64,6 +64,18 @@ const routes = [
         name: 'ResumeBuilderEducation',
         props: true,
         component: () => import('../components/builderComps/builderSubViews/Education.vue')
+      },
+      {
+        path: '/resume-builder/organization',
+        name: 'ResumeBuilderOrganization',
+        props: true,
+        component: () => import('../components/builderComps/builderSubViews/Organization.vue')
+      },
+      {
+        path: '/resume-builder/languages',
+        name: 'ResumeBuilderLanguages',
+        props: true,
+        component: () => import('../components/builderComps/builderSubViews/Languages.vue')
       }
     ]
   }

@@ -65,46 +65,33 @@
             <ul id="org-list" class="horizontal-list-grow-right">
               <li
                 v-for="item in resumeInfo.organizations"
-                :key="item.name"
+                :key="item.orgName"
                 class="org-item no-style-item"
               >
                 <div class="org-group">
-                  <h5 class="org-title">{{item.name}}</h5>
-                  <h6 class="membership-dates">{{item.membershipDate}}</h6>
+                  <h5 class="org-title">{{item.orgName}}</h5>
+                  <h6 class="membership-dates">{{item.membershipDates}}</h6>
                 </div>
               </li>
             </ul>
           </div>
         </div>
         <!-- End of org Section -->
-        <h3 class="body-section-title">&nbsp;Langauges</h3>
+        <h3 class="body-section-title">&nbsp;Languages</h3>
         <div id="language-section" class="body-group">
           <div class="inset-container">
             <ul id="language-list" class="horizontal-list-grow-right">
-              <li class="langauge-item no-style-item">
+              <li v-for="item in resumeInfo.languages"
+                :key="item.language" class="language-item no-style-item">
                 <div class="language-group">
-                  <h5 class="langauge-name">Spanish</h5>
-                  <h6 class="level-fluency">Good</h6>
-                </div>
-              </li>
-
-              <li class="langauge-item no-style-item">
-                <div class="language-group">
-                  <h5 class="langauge-name">French</h5>
-                  <h6 class="level-fluency">Good</h6>
-                </div>
-              </li>
-
-              <li class="langauge-item no-style-item">
-                <div class="language-group">
-                  <h5 class="langauge-name">Italian</h5>
-                  <h6 class="level-fluency">Good</h6>
+                  <h5 class="language-name">{{ item.language }}</h5>
+                  <h6 class="level-fluency">{{ item.skillLevel }}</h6>
                 </div>
               </li>
             </ul>
           </div>
         </div>
-        <!-- End of langauge Section -->
+        <!-- End of language Section -->
       </div>
       <!-- End body-wrapper -->
     </div>

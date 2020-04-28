@@ -2,9 +2,9 @@
   <BuilderCard
     :title="title"
     :description="description"
-    :fields="organizationFields"
+    :fields="languageFields"
     :next="next"
-    @blur-event="makeStateObject($event, organizationObject)"
+    @blur-event="makeStateObject($event, languageObject)"
     @button-click-event="updateResume"
   />
 </template>
@@ -23,24 +23,24 @@ export default {
     BuilderCard
   },
   data: () => ({
-    title: 'Organizations',
-    next: 'Languages',
-    route: '/resume-builder/organizations',
-    description: 'Enter any organization history.',
-    organizationObject: {
-      orgName: null,
-      membershipDates: null
+    title: 'Languages',
+    next: 'Review Resume',
+    route: '/resume-builder/review',
+    description: 'Enter any language history.',
+    languageObject: {
+      language: null,
+      skillLevel: null
     },
     canSubmit: false,
     submittedBefore: false
   }),
   computed: {
-    ...mapState('simple', ['organizationFields', 'resumeInfo']),
+    ...mapState('simple', ['languageFields', 'resumeInfo']),
     requiredFields () {
       return filterOnKeys(
         'fieldType',
         ['v-text-field', 'v-textarea'],
-        this.organizationFields
+        this.languageFields
       ).map(ele => camelize(ele.fieldName))
     }
   },
@@ -52,7 +52,7 @@ export default {
       clearLast: 'removeFromStateArray'
     }),
     updateResume (payload) {
-      if (validateObject(this.organizationObject, this.requiredFields)) {
+      if (validateObject(this.languageObject, this.requiredFields)) {
         this.canSubmit = true
       }
 
@@ -67,7 +67,7 @@ export default {
 
       const formattedPayload = makePayload({
         section: camelizedTitle,
-        value: { ...this.organizationObject } // Spread operator used to pass deep copy of this.jobObject not a pointer to it
+        value: { ...this.languageObject } // Spread operator used to pass deep copy of this.jobObject not a pointer to it
       })
 
       if (!this.submittedBefore) {
