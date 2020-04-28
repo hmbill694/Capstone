@@ -4,6 +4,7 @@
     :description="description"
     :fields="workFields"
     :next="next"
+    :route="route"
     @blur-event="makeStateObject($event, jobObject, processInput)"
     @button-click-event="updateResume"
   />

@@ -4,6 +4,7 @@
     :description="description"
     :fields="languageFields"
     :next="next"
+    :route="route"
     @blur-event="makeStateObject($event, languageObject)"
     @button-click-event="updateResume"
   />
@@ -25,7 +26,7 @@ export default {
   data: () => ({
     title: 'Languages',
     next: 'Review Resume',
-    route: '/resume-builder/review',
+    route: '/resume-review',
     description: 'Enter any language history.',
     languageObject: {
       language: null,

@@ -4,6 +4,7 @@
     :description="description"
     :fields="skillsFields"
     :next="next"
+    :route="route"
     @blur-event="updateResume"
     @radio-click-event="setSkillsPerColumn"
   />

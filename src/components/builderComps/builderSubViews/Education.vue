@@ -4,6 +4,7 @@
     :description="description"
     :fields="educationFields"
     :next="next"
+    :route="route"
     @blur-event="makeStateObject($event, educationObject)"
     @button-click-event="updateResume"
   />
@@ -25,7 +26,7 @@ export default {
   data: () => ({
     title: 'Education',
     next: 'Organizations',
-    route: '/resume-builder/organizations',
+    route: '/resume-builder/organization',
     description: 'Enter any education history.',
     educationObject: {
       degreeName: null,

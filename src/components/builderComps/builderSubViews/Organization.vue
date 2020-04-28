@@ -4,6 +4,7 @@
     :description="description"
     :fields="organizationFields"
     :next="next"
+    :route="route"
     @blur-event="makeStateObject($event, organizationObject)"
     @button-click-event="updateResume"
   />
@@ -25,7 +26,7 @@ export default {
   data: () => ({
     title: 'Organizations',
     next: 'Languages',
-    route: '/resume-builder/organizations',
+    route: '/resume-builder/languages',
     description: 'Enter any organization history.',
     organizationObject: {
       orgName: null,
